@@ -1,710 +1,778 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <script src="accesibilidad.js"></script>
-    <title>Cursos</title>
-    <style>
-        h1 {
-            position: absolute;
-            top: 190px;
-            color: white;
-        }
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+  <script src="accesibilidad.js"></script>
+  <title>Cursos</title>
+  <style>
+    h1 {
+      position: absolute;
+      top: 190px;
+      color: white;
+    }
 
-        .container-fluid{
-          position: absolute;
+    .container-fluid {
+      position: absolute;
 
-        }
+    }
 
-        .list-group{
-          top: 100px;
-        }
+    .list-group {
+      top: 100px;
+    }
 
-        .h1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .card-img-top {
-            max-width: 100%;
-            height: 380px;
-        }
+    .h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .navbar-custom {
-            background-color: #2980f2;
-        }
-        .aside {
-            background-color: #6ea9f7;
-            color: #000000;  
-        }
-        .navbar .nav-link {
-            color: #000000;        
-        }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        .custom-input {
-            width: 50px;          
-            height: 40px;           
-        }
+    .card-img-top {
+      max-width: 100%;
+      height: 380px;
+    }
 
-        .ayuda {
-            border: none;
-            position: fixed;
-            bottom: 10px;
-            right: 10px !important;
-            z-index: 9999;
-            transition: transform 0.2s;
-        }
+    .navbar-custom {
+      background-color: #2980f2;
+    }
 
-        .opciones-accesibilidad {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 9999;         
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);         
-        }
+    .aside {
+      background-color: #6ea9f7;
+      color: #000000;
+    }
 
-        .accesibilidad {
-            border: none;
-            position: fixed;
-            bottom: 10px;
-            left: 10px !important;
-            z-index: 9998;
-            transition: transform 0.2s;
-        }
+    .navbar .nav-link {
+      color: #000000;
+    }
 
-        .container > div {
-        margin: 0;
-        }
+    .custom-input {
+      width: 50px;
+      height: 40px;
+    }
 
-        .card:hover {
-        transform: scale(1.05); /* Cambia la escala de la tarjeta cuando el mouse está encima */
-        transition: transform 0.3s ease; /* Agrega una transición suave */
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra para resaltar la tarjeta */
-    } 
-    </style>
+    .ayuda {
+      border: none;
+      position: fixed;
+      bottom: 10px;
+      right: 10px !important;
+      z-index: 9999;
+      transition: transform 0.2s;
+    }
 
-<style>
-  body {
-background: #fbfbfd;
-}
+    .opciones-accesibilidad {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 9999;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
 
-.new_footer_area {
-background: #fbfbfd;
-}
+    .accesibilidad {
+      border: none;
+      position: fixed;
+      bottom: 10px;
+      left: 10px !important;
+      z-index: 9998;
+      transition: transform 0.2s;
+    }
 
+    .container>div {
+      margin: 0;
+    }
 
-.new_footer_top {
-padding: 120px 0px 270px;
-position: relative;
-overflow-x: hidden;
-}
-.new_footer_area .footer_bottom {
-padding-top: 5px;
-padding-bottom: 50px;
-}
-.footer_bottom {
-font-size: 14px;
-font-weight: 300;
-line-height: 20px;
-color: #7f88a6;
-padding: 27px 0px;
-}
-.new_footer_top .company_widget p {
-font-size: 16px;
-font-weight: 300;
-line-height: 28px;
-color: #6a7695;
-margin-bottom: 20px;
-}
-.new_footer_top .company_widget .f_subscribe_two .btn_get {
-border-width: 1px;
-margin-top: 20px;
-}
-.btn_get_two:hover {
-background: transparent;
-color: #5e2ced;
-}
-.btn_get:hover {
-color: #fff;
-background: #6754e2;
-border-color: #6754e2;
--webkit-box-shadow: none;
-box-shadow: none;
-}
-a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
-text-decoration: none;
-outline: none;
-}
+    .card:hover {
+      transform: scale(1.05);
+      /* Cambia la escala de la tarjeta cuando el mouse está encima */
+      transition: transform 0.3s ease;
+      /* Agrega una transición suave */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      /* Agrega una sombra para resaltar la tarjeta */
+    }
+  </style>
+
+  <style>
+    body {
+      background: #fbfbfd;
+    }
+
+    .new_footer_area {
+      background: #fbfbfd;
+    }
 
 
+    .new_footer_top {
+      padding: 120px 0px 270px;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-.new_footer_top .f_widget.about-widget .f_list li a:hover {
-color: #5e2ced;
-}
-.new_footer_top .f_widget.about-widget .f_list li {
-margin-bottom: 11px;
-}
-.f_widget.about-widget .f_list li:last-child {
-margin-bottom: 0px;
-}
-.f_widget.about-widget .f_list li {
-margin-bottom: 15px;
-}
-.f_widget.about-widget .f_list {
-margin-bottom: 0px;
-}
-.new_footer_top .f_social_icon a {
-width: 44px;
-height: 44px;
-line-height: 43px;
-background: transparent;
-border: 1px solid #e2e2eb;
-font-size: 24px;
-}
-.f_social_icon a {
-width: 46px;
-height: 46px;
-border-radius: 50%;
-font-size: 14px;
-line-height: 45px;
-color: #858da8;
-display: inline-block;
-background: #ebeef5;
-text-align: center;
--webkit-transition: all 0.2s linear;
--o-transition: all 0.2s linear;
-transition: all 0.2s linear;
-}
-.ti-facebook:before {
-content: "\e741";
-}
-.ti-twitter-alt:before {
-content: "\e74b";
-}
-.ti-vimeo-alt:before {
-content: "\e74a";
-}
-.ti-pinterest:before {
-content: "\e731";
-}
+    .new_footer_area .footer_bottom {
+      padding-top: 5px;
+      padding-bottom: 50px;
+    }
 
-.btn_get_two {
--webkit-box-shadow: none;
-box-shadow: none;
-background: #5e2ced;
-border-color: #5e2ced;
-color: #fff;
-}
+    .footer_bottom {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 20px;
+      color: #7f88a6;
+      padding: 27px 0px;
+    }
 
-.btn_get_two:hover {
-background: transparent;
-color: #5e2ced;
-}
+    .new_footer_top .company_widget p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 28px;
+      color: #6a7695;
+      margin-bottom: 20px;
+    }
 
-.new_footer_top .f_social_icon a:hover {
-background: #5e2ced;
-border-color: #5e2ced;
-color:white;
-}
-.new_footer_top .f_social_icon a + a {
-margin-left: 4px;
-}
-.new_footer_top .f-title {
-margin-bottom: 30px;
-color: #263b5e;
-}
-.f_600 {
-font-weight: 600;
-}
-.f_size_18 {
-font-size: 18px;
-}
-h1, h2, h3, h4, h5, h6 {
-color: #4b505e;
-}
-.new_footer_top .f_widget.about-widget .f_list li a {
-color: #6a7695;
-}
+    .new_footer_top .company_widget .f_subscribe_two .btn_get {
+      border-width: 1px;
+      margin-top: 20px;
+    }
 
+    .btn_get_two:hover {
+      background: transparent;
+      color: #5e2ced;
+    }
 
-.new_footer_top .footer_bg {
-position: absolute;
-bottom: 0;
-background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigB8iI5tb8WSVBuVUGc9UjjB8O0708X7Fdic_4O1LT4CmLHoiwhanLXiRhe82yw0R7LgACQ2IhZaTY0hhmGi0gYp_Ynb49CVzfmXtYHUVKgXXpWvJ_oYT8cB4vzsnJLe3iCwuzj-w6PeYq_JaHmy_CoGoa6nw0FBo-2xLdOPvsLTh_fmYH2xhkaZ-OGQ/s16000/footer_bg.png") no-repeat scroll center 0;
-width: 100%;
-height: 266px;
-}
+    .btn_get:hover {
+      color: #fff;
+      background: #6754e2;
+      border-color: #6754e2;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
 
-.new_footer_top .footer_bg .footer_bg_one {
-background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif") no-repeat center center;
-width: 330px;
-height: 105px;
-background-size:100%;
-position: absolute;
-bottom: 0;
-left: 30%;
--webkit-animation: myfirst 22s linear infinite;
-animation: myfirst 22s linear infinite;
-}
-
-.new_footer_top .footer_bg .footer_bg_two {
-background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyLGwEUVwPK6Vi8xXMymsc-ZXVwLWyXhogZxbcXQYSY55REw_0D4VTQnsVzCrL7nsyjd0P7RVOI5NKJbQ75koZIalD8mqbMquP20fL3DxsWngKkOLOzoOf9sMuxlbyfkIBTsDw5WFUj-YJiI50yzgVjF8cZPHhEjkOP_PRTQXDHEq8AyWpBiJdN9SfQA/s16000/cyclist.gif") no-repeat center center;
-width: 88px;
-height: 100px;
-background-size:100%;
-bottom: 0;
-left: 38%;
-position: absolute;
--webkit-animation: myfirst 30s linear infinite;
-animation: myfirst 30s linear infinite;
-}
+    a:hover,
+    a:focus,
+    .btn:hover,
+    .btn:focus,
+    button:hover,
+    button:focus {
+      text-decoration: none;
+      outline: none;
+    }
 
 
 
-@-moz-keyframes myfirst {
-0% {
-left: -25%;
-}
-100% {
-left: 100%;
-}
-}
+    .new_footer_top .f_widget.about-widget .f_list li a:hover {
+      color: #5e2ced;
+    }
 
-@-webkit-keyframes myfirst {
-0% {
-left: -25%;
-}
-100% {
-left: 100%;
-}
-}
+    .new_footer_top .f_widget.about-widget .f_list li {
+      margin-bottom: 11px;
+    }
 
-@keyframes myfirst {
-0% {
-left: -25%;
-}
-100% {
-left: 100%;
-}
-}
-</style>
+    .f_widget.about-widget .f_list li:last-child {
+      margin-bottom: 0px;
+    }
+
+    .f_widget.about-widget .f_list li {
+      margin-bottom: 15px;
+    }
+
+    .f_widget.about-widget .f_list {
+      margin-bottom: 0px;
+    }
+
+    .new_footer_top .f_social_icon a {
+      width: 44px;
+      height: 44px;
+      line-height: 43px;
+      background: transparent;
+      border: 1px solid #e2e2eb;
+      font-size: 24px;
+    }
+
+    .f_social_icon a {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 14px;
+      line-height: 45px;
+      color: #858da8;
+      display: inline-block;
+      background: #ebeef5;
+      text-align: center;
+      -webkit-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
+    }
+
+    .ti-facebook:before {
+      content: "\e741";
+    }
+
+    .ti-twitter-alt:before {
+      content: "\e74b";
+    }
+
+    .ti-vimeo-alt:before {
+      content: "\e74a";
+    }
+
+    .ti-pinterest:before {
+      content: "\e731";
+    }
+
+    .btn_get_two {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      background: #5e2ced;
+      border-color: #5e2ced;
+      color: #fff;
+    }
+
+    .btn_get_two:hover {
+      background: transparent;
+      color: #5e2ced;
+    }
+
+    .new_footer_top .f_social_icon a:hover {
+      background: #5e2ced;
+      border-color: #5e2ced;
+      color: white;
+    }
+
+    .new_footer_top .f_social_icon a+a {
+      margin-left: 4px;
+    }
+
+    .new_footer_top .f-title {
+      margin-bottom: 30px;
+      color: #263b5e;
+    }
+
+    .f_600 {
+      font-weight: 600;
+    }
+
+    .f_size_18 {
+      font-size: 18px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: #4b505e;
+    }
+
+    .new_footer_top .f_widget.about-widget .f_list li a {
+      color: #6a7695;
+    }
+
+
+    .new_footer_top .footer_bg {
+      position: absolute;
+      bottom: 0;
+      background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigB8iI5tb8WSVBuVUGc9UjjB8O0708X7Fdic_4O1LT4CmLHoiwhanLXiRhe82yw0R7LgACQ2IhZaTY0hhmGi0gYp_Ynb49CVzfmXtYHUVKgXXpWvJ_oYT8cB4vzsnJLe3iCwuzj-w6PeYq_JaHmy_CoGoa6nw0FBo-2xLdOPvsLTh_fmYH2xhkaZ-OGQ/s16000/footer_bg.png") no-repeat scroll center 0;
+      width: 100%;
+      height: 266px;
+    }
+
+    .new_footer_top .footer_bg .footer_bg_one {
+      background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif") no-repeat center center;
+      width: 330px;
+      height: 105px;
+      background-size: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 30%;
+      -webkit-animation: myfirst 22s linear infinite;
+      animation: myfirst 22s linear infinite;
+    }
+
+    .new_footer_top .footer_bg .footer_bg_two {
+      background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyLGwEUVwPK6Vi8xXMymsc-ZXVwLWyXhogZxbcXQYSY55REw_0D4VTQnsVzCrL7nsyjd0P7RVOI5NKJbQ75koZIalD8mqbMquP20fL3DxsWngKkOLOzoOf9sMuxlbyfkIBTsDw5WFUj-YJiI50yzgVjF8cZPHhEjkOP_PRTQXDHEq8AyWpBiJdN9SfQA/s16000/cyclist.gif") no-repeat center center;
+      width: 88px;
+      height: 100px;
+      background-size: 100%;
+      bottom: 0;
+      left: 38%;
+      position: absolute;
+      -webkit-animation: myfirst 30s linear infinite;
+      animation: myfirst 30s linear infinite;
+    }
+
+
+
+    @-moz-keyframes myfirst {
+      0% {
+        left: -25%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    @-webkit-keyframes myfirst {
+      0% {
+        left: -25%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+
+    @keyframes myfirst {
+      0% {
+        left: -25%;
+      }
+
+      100% {
+        left: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div id="contenido">
     <nav class="navbar navbar-expand-lg navbar-custom nav">
-        <a class="navbar-brand" href="Index.html">
-            <img src="./Imagenes/logo.webp" width="150px" height="50px" class="d-inline-block align-top" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav" style="margin: 0 auto; text-align: justify;">
-                <li class="nav-item"><a class="nav-link" href="academia.html">Academia</a></li>
-                <li class="nav-item"><a class="nav-link" href="cursosdocentes.html">Cursos</a></li>
-                <li class="nav-item"><a class="nav-link" href="PerfilDocente.html">Perfil Docente</a></li>
-                <li class="nav-item"><a class="nav-link" href="Calendario.html">Caledario Academico</a></li>
-            </ul>
-        </div>
+      <a class="navbar-brand" href="Index.html">
+        <img src="./Imagenes/logo.webp" width="150px" height="33px" class="d-inline-block align-top" alt="Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="margin: 0 auto; text-align: justify;">
+          <li class="nav-item"><a class="nav-link" href="academia.html">Academia</a></li>
+          <li class="nav-item"><a class="nav-link" href="cursosdocentes.html">Cursos</a></li>
+          <li class="nav-item"><a class="nav-link" href="PerfilDocente.html">Perfil Docente</a></li>
+          <li class="nav-item"><a class="nav-link" href="Calendario.html">Calendario Academico</a></li>
+        </ul>
+      </div>
     </nav>
-    </nav>
-
-    
 
     <div class="container-fluid" style="padding: 0%;">
 
-        <div class="row">
+      <div class="row">
 
-          <div>
-            <img src="https://laopinion.de/wp-content/uploads/2022/05/Isaac-Enriquez-137.png" width="100%" height="400">
+        <div>
+          <img src="https://laopinion.de/wp-content/uploads/2022/05/Isaac-Enriquez-137.png" width="100%" height="400">
         </div>
         <div class="h1">
-            <h1>Cursos Impartidos por nuestra Docencia</h1>
+          <h1>Cursos Impartidos por nuestra Docencia</h1>
         </div>
-            <div>
-                <button type="button" class="btn btn-primary ayuda" data-toggle="modal" data-target="#chatModal"
-                    style="width: min-content;">
-                    <i class="fas fa-question-circle"></i> Ayuda
-                </button>
+        <div>
+          <button type="button" class="btn btn-primary ayuda" data-toggle="modal" data-target="#chatModal"
+            style="width: min-content;">
+            <i class="fas fa-question-circle"></i> Ayuda
+          </button>
+        </div>
+        <div>
+          <button id="mostrarOpciones" type="button" class="btn btn-primary accesibilidad" style="width: min-content;">
+            <i class="fas fa-wheelchair icon-white"></i> Accesibilidad
+          </button>
+        </div>
+
+
+        <!-- Opciones de accesibilidad -->
+        <div id="opcionesAccesibilidad" class="opciones-accesibilidad d-none">
+
+          <div>
+            <i id="cerrarOpciones" class="fas fa-times"></i>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <button id="aumentarFuente" class="btn btn-primary mb-2">
+              <i class="fas fa-font fa-lg"></i><i class="fas fa-plus fa-lg"></i>
+            </button>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <button id="disminuirFuente" class="btn btn-primary mb-2">
+              <i class="fas fa-font fa-lg"></i><i class="fas fa-minus fa-lg"></i>
+            </button>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <button id="leerPagina" class="btn btn-primary mb-2" style="width: min-content;">
+              <i class="fas fa-volume-up"></i>
+            </button>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <button id="aumentarTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+              <i class="fas fa-search-plus"></i>
+            </button>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <button id="disminuirTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+              <i class="fas fa-search-minus"></i>
+            </button>
+          </div>
+
+          <div class="d-flex flex-column align-items-center">
+            <button onclick="toggleReadingMode()" class="btn btn-primary mb-2" style="width: min-content;">
+              <i class="fas fa-volume-up"></i>
+              <i class="fas fa-hand-pointer"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <script>
+          document.getElementById('mostrarOpciones').addEventListener('click', function () {
+            document.getElementById('opcionesAccesibilidad').classList.toggle('d-none');
+          });
+
+          document.getElementById('cerrarOpciones').addEventListener('click', function () {
+            document.getElementById('opcionesAccesibilidad').classList.add('d-none');
+          });
+        </script>
+
+        <!------------------------------------ Aqui pega tu parte ---------------------------------------------->
+        <main class="col-lg-9" style="margin: 0 auto; text-align: justify;">
+
+
+          <div class="icons">
+            <button id="increaseFont" class="btn"><i class="bi bi-fonts"></i><i class="bi bi-zoom-in"></i></button>
+            <button id="decreaseFont" class="btn"><i class="bi bi-fonts"></i><i class="bi bi-zoom-out"></i></button>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="mb-3 p-3 ms-5">
+              <nav aria-label="breadcrumb" style="width:max-content;">
+                <ol class="breadcrumb ms-5">
+                  <li class="breadcrumb-item"><a href="Index.html">Inicio</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Cursos impartidos</li>
+                </ol>
+              </nav>
             </div>
-            <div>
-                <button id="mostrarOpciones" type="button" class="btn btn-primary accesibilidad"
-                    style="width: min-content;">
-                    <i class="fas fa-wheelchair icon-white"></i> Accesibilidad
-                </button>
+            <div class="input-group-append ms-auto p-3">
+              <form class="d-flex" role="search">
+                <input id="searchInput" class="form-control me-2" type="search" placeholder="Search"
+                  aria-label="Search">
+                <button id="searchButton" class="btn btn-outline-success" type="button">Search</button>
+              </form>
             </div>
-            
+          </div>
 
-                            <!-- Opciones de accesibilidad -->
-            <div id="opcionesAccesibilidad" class="opciones-accesibilidad d-none">
-
-                <div>
-                    <i id="cerrarOpciones" class="fas fa-times"></i>
-                </div>
-
-                <div class="d-flex flex-column align-items-center">
-                    <button id="aumentarFuente" class="btn btn-primary mb-2">
-                        <i class="fas fa-font fa-lg"></i><i class="fas fa-plus fa-lg"></i>
-                    </button>
-                </div>
-
-                <div class="d-flex flex-column align-items-center">
-                    <button id="disminuirFuente" class="btn btn-primary mb-2">
-                        <i class="fas fa-font fa-lg"></i><i class="fas fa-minus fa-lg"></i>
-                    </button>
-                </div>
-
-                <div class="d-flex flex-column align-items-center">
-                    <button id="leerPagina" class="btn btn-primary mb-2" style="width: min-content;">
-                        <i class="fas fa-volume-up"></i> 
-                    </button>
-                </div>
-
-                <div class="d-flex flex-column align-items-center">
-                    <button id="aumentarTamanio" class="btn btn-primary mb-2" style="width: min-content;">
-                        <i class="fas fa-search-plus"></i> 
-                    </button>
-                </div>
-
-                <div class="d-flex flex-column align-items-center">
-                    <button id="disminuirTamanio" class="btn btn-primary mb-2" style="width: min-content;">
-                        <i class="fas fa-search-minus"></i>
-                    </button>
-                </div>
-
-                <div class="d-flex flex-column align-items-center">
-                    <button onclick="toggleReadingMode()" class="btn btn-primary mb-2" style="width: min-content;">
-                        <i class="fas fa-volume-up"></i>
-                        <i class="fas fa-hand-pointer"></i> 
-                    </button>
-                </div>
-
-            </div>
-
-              <script>
-                document.getElementById('mostrarOpciones').addEventListener('click', function () {
-                    document.getElementById('opcionesAccesibilidad').classList.toggle('d-none');
-                });
-
-                document.getElementById('cerrarOpciones').addEventListener('click', function () {
-                    document.getElementById('opcionesAccesibilidad').classList.add('d-none');
-                });
-            </script>
-
-                    <!------------------------------------ Aqui pega tu parte ---------------------------------------------->
-                    <main class="col-lg-9" style="margin: 0 auto; text-align: justify;">
-                
-          
-              <div class="icons">
-                <button id="increaseFont" class="btn"><i class="bi bi-fonts"></i><i class="bi bi-zoom-in"></i></button>
-                <button id="decreaseFont" class="btn"><i class="bi bi-fonts"></i><i class="bi bi-zoom-out"></i></button>
-              </div>
-              
-              <div class="input-group mb-3">
-                <div class="mb-3 p-3 ms-5">
-                  <nav aria-label="breadcrumb" style="width:max-content;">
-                    <ol class="breadcrumb ms-5">
-                      <li class="breadcrumb-item"><a href="Index.html">Inicio</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Cursos impartidos</li>
-                    </ol>
-                  </nav>
-                </div>
-                  <div class="input-group-append ms-auto p-3">
-                    <form class="d-flex" role="search">
-                      <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button id="searchButton" class="btn btn-outline-success" type="button">Search</button>
-                    </form>
+          <div class="container">
+            <div class="row row-cols-3 g-5">
+              <div id="searchResult" class="col">
+                <div class="card" id="docente1">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Apolinar Trejo</p>
+                    <a href="Apolinar.html" class="btn btn-primary">Ver Curso</a>
                   </div>
+                </div>
               </div>
-          
-              <div class="container">
-                  <div class="row row-cols-3 g-5">
-                      <div id="searchResult" class="col">
-                        <div class="card" id="docente1">
-                          <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                          <div class="card-body">
-                            <h5 class="card-title">Docente</h5>
-                            <p class="card-text">Apolinar Trejo</p>
-                            <a href="Apolinar.html" class="btn btn-primary">Ver Curso</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="searchResult" class="col">
-                        <div class="card" id="docente2">
-                          <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                          <div class="card-body">
-                            <h5 class="card-title">Docente</h5>
-                            <p class="card-text">Ricardo Muro Gómez</p>
-                            <a href="Muro.html" class="btn btn-primary">Ver Curso</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div id="searchResult" class="col">
-                        <div class="card" id="docente3">
-                          <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                          <div class="card-body">
-                            <h5 class="card-title">Docente</h5>
-                            <p class="card-text">José Refugio Rubio Hernández</p>
-                            <a href="Rubio.html" class="btn btn-primary">Ver Curso</a>
-                          </div>
-                          </div>
-                      </div>
-                      <div class="col">
-                          <div class="card" id="docente4">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Docente</h5>
-                              <p class="card-text">Daniel Sustaita</p>
-                              <a href="Sustaita.html" class="btn btn-primary">Ver Curso</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="card" id="docente5">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Docente</h5>
-                              <p class="card-text">Saúl Benjamín Villeda Sánchez</p>
-                              <a href="Benjamin.html" class="btn btn-primary">Ver Curso</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="card" id="docente6">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Docente</h5>
-                              <p class="card-text">Gabriel Barron</p>
-                              <a href="Gabriel.html" class="btn btn-primary">Ver Curso</a>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                          <div class="card" id="docente7">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Docente</h5>
-                              <p class="card-text">Anireya Saavedra Pérez</p>
-                              <a href="Anireya.html" class="btn btn-primary">Ver Curso</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="card" id="docente8">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Docente</h5>
-                              <p class="card-text">Martha Elena García Sandoval</p>
-                              <a href="Martha.html" class="btn btn-primary">Ver Curso</a>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="card" id="docente9">
-                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
-                            <div class="card-body">
-                              <h5 class="card-title">Docente</h5>
-                              <p class="card-text">Ana Karen Campos Márquez</p>
-                              <a href="Karen.html" class="btn btn-primary">Ver Curso</a>
-                            </div>
-                            </div>
-                        </div>
-                      </div>
-          
-          
+              <div id="searchResult" class="col">
+                <div class="card" id="docente2">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Ricardo Muro Gómez</p>
+                    <a href="Muro.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div id="searchResult" class="col">
+                <div class="card" id="docente3">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">José Refugio Rubio Hernández</p>
+                    <a href="Rubio.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" id="docente4">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Daniel Sustaita</p>
+                    <a href="Sustaita.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" id="docente5">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Saúl Benjamín Villeda Sánchez</p>
+                    <a href="Benjamin.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" id="docente6">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Gabriel Barron</p>
+                    <a href="Gabriel.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" id="docente7">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Anireya Saavedra Pérez</p>
+                    <a href="Anireya.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" id="docente8">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Martha Elena García Sandoval</p>
+                    <a href="Martha.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card" id="docente9">
+                  <img
+                    src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg"
+                    class="card-img-top">
+                  <div class="card-body">
+                    <h5 class="card-title">Docente</h5>
+                    <p class="card-text">Ana Karen Campos Márquez</p>
+                    <a href="Karen.html" class="btn btn-primary">Ver Curso</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
             <script>
               document.getElementById('searchButton').addEventListener('click', function () {
-                      // Obtener el valor del input
-                      var searchTerm = document.getElementById('searchInput').value.toLowerCase();
-          
-                      // Obtener todas las tarjetas de docentes
-                      var cards = document.querySelectorAll('.card');
-          
-                      var cardContent = "";
-          
-                      // Variable para rastrear si se encontró una coincidencia en las tarjetas
-                      var cardFound = false;
-          
-                      // Lista de nombres de profesores
-                      var profesores = [
-                          "Apolinar Trejo",
-                          "Ricardo Muro Gómez",
-                          "José Refugio Rubio Hernández",
-                          "Daniel Sustaita",
-                          "Saúl Benjamín Villeda Sánchez",
-                          "Gabriel Barron",
-                          "Anireya Saavedra Pérez",
-                          "Martha Elena García Sandoval",
-                          "Ana Karen Campos Márquez"
-                      ];
-          
-                      // Iterar sobre las tarjetas para verificar si el nombre coincide
-                      cards.forEach(function (card) {
-                          var cardTitle = card.querySelector('.card-title').innerText.toLowerCase();
-                          var cardText = card.querySelector('.card-text').innerText.toLowerCase();
-          
-                          if (cardTitle.includes(searchTerm) || cardText.includes(searchTerm)) {
-                              // Mostrar la tarjeta que coincide
-                              cardContent = card.outerHTML;
-                              card.style.display = 'block';
-                              cardFound = true;
-                          } else {
-                              // Ocultar las tarjetas que no coinciden
-                              card.style.display = 'none';
-                          }
-                      });
-          
-                      // Verificar si el nombre está en la lista de profesores y si no se encontró ninguna coincidencia en las tarjetas
-                      if (!cardFound && !profesores.includes(searchTerm)) {
-                          // Si el nombre no existe, redirigir a notfound.html
-                          window.location.href = "notfound.html";
-                      }
-                      
-                  });
-              
-                  document.getElementById('increaseFont').addEventListener('click', function () {
-                      cambiarTamanioFuente(2);
-                  });
-          
-                  document.getElementById('decreaseFont').addEventListener('click', function () {
-                      cambiarTamanioFuente(-2);
-                  });
-          
-                  function cambiarTamanioFuente(valor) {
-                      var body = document.body;
-                      var estiloActual = window.getComputedStyle(body, null).getPropertyValue('font-size');
-                      var tamanioActual = parseFloat(estiloActual);
-          
-                      body.style.fontSize = (tamanioActual + valor) + 'px';
+                // Obtener el valor del input
+                var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+                // Obtener todas las tarjetas de docentes
+                var cards = document.querySelectorAll('.card');
+
+                var cardContent = "";
+
+                // Variable para rastrear si se encontró una coincidencia en las tarjetas
+                var cardFound = false;
+
+                // Lista de nombres de profesores
+                var profesores = [
+                  "Apolinar Trejo",
+                  "Ricardo Muro Gómez",
+                  "José Refugio Rubio Hernández",
+                  "Daniel Sustaita",
+                  "Saúl Benjamín Villeda Sánchez",
+                  "Gabriel Barron",
+                  "Anireya Saavedra Pérez",
+                  "Martha Elena García Sandoval",
+                  "Ana Karen Campos Márquez"
+                ];
+
+                // Iterar sobre las tarjetas para verificar si el nombre coincide
+                cards.forEach(function (card) {
+                  var cardTitle = card.querySelector('.card-title').innerText.toLowerCase();
+                  var cardText = card.querySelector('.card-text').innerText.toLowerCase();
+
+                  if (cardTitle.includes(searchTerm) || cardText.includes(searchTerm)) {
+                    // Mostrar la tarjeta que coincide
+                    cardContent = card.outerHTML;
+                    card.style.display = 'block';
+                    cardFound = true;
+                  } else {
+                    // Ocultar las tarjetas que no coinciden
+                    card.style.display = 'none';
                   }
+                });
+
+                // Verificar si el nombre está en la lista de profesores y si no se encontró ninguna coincidencia en las tarjetas
+                if (!cardFound && !profesores.includes(searchTerm)) {
+                  // Si el nombre no existe, redirigir a notfound.html
+                  window.location.href = "notfound.html";
+                }
+
+              });
+
+              document.getElementById('increaseFont').addEventListener('click', function () {
+                cambiarTamanioFuente(2);
+              });
+
+              document.getElementById('decreaseFont').addEventListener('click', function () {
+                cambiarTamanioFuente(-2);
+              });
+
+              function cambiarTamanioFuente(valor) {
+                var body = document.body;
+                var estiloActual = window.getComputedStyle(body, null).getPropertyValue('font-size');
+                var tamanioActual = parseFloat(estiloActual);
+
+                body.style.fontSize = (tamanioActual + valor) + 'px';
+              }
             </script>
-              </main>      
-                
+        </main>
 
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <br>
-        <br>
+
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <br>
+      <br>
     </div>
-</div>
+  </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<div class="modal" id="chatModal" tabindex="-1" role="dialog">
+  <div class="modal" id="chatModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Chat de Ayuda</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¡Hola! ¿En qué puedo ayudarte?</p>
-                <form>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje:</label>
-                        <input type="text" class="form-control" id="mensaje"
-                            placeholder="Escribe tu mensaje aquí...">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Chat de Ayuda</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <p>¡Hola! ¿En qué puedo ayudarte?</p>
+          <form>
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <input type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje aquí...">
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+        </div>
+      </div>
     </div>
-</div>  
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<footer class="new_footer_area bg_color">
-  <div class="new_footer_top">
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer class="new_footer_area bg_color">
+    <div class="new_footer_top">
       <div class="container">
-          <div class="row">
-              <div class="col-lg-3 col-md-6">
-                  <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                      <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                      <p>Don’t miss any updates of our new templates and extensions.!</p>
-                      <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                          <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                          <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
-                          <p class="mchimp-errmessage" style="display: none;"></p>
-                          <p class="mchimp-sucmessage" style="display: none;"></p>
-                      </form>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                      <h3 class="f-title f_600 t_color f_size_18">Download</h3>
-                      <ul class="list-unstyled f_list">
-                          <li><a href="#">Company</a></li>
-                          <li><a href="#">Android App</a></li>
-                          <li><a href="#">ios App</a></li>
-                          <li><a href="#">Desktop</a></li>
-                          <li><a href="#">Projects</a></li>
-                          <li><a href="#">My tasks</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
-                      <h3 class="f-title f_600 t_color f_size_18">Help</h3>
-                      <ul class="list-unstyled f_list">
-                          <li><a href="#">FAQ</a></li>
-                          <li><a href="#">Term &amp; conditions</a></li>
-                          <li><a href="#">Reporting</a></li>
-                          <li><a href="#">Documentation</a></li>
-                          <li><a href="#">Support Policy</a></li>
-                          <li><a href="#">Privacy</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                      <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
-                      <div class="f_social_icon">
-                          <a href="#" class="fab fa-facebook"></a>
-                          <a href="#" class="fab fa-twitter"></a>
-                          <a href="#" class="fab fa-linkedin"></a>
-                          <a href="#" class="fab fa-pinterest"></a>
-                      </div>
-                  </div>
-              </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s"
+              style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+              <p>Don’t miss any updates of our new templates and extensions.!</p>
+              <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                <p class="mchimp-errmessage" style="display: none;"></p>
+                <p class="mchimp-sucmessage" style="display: none;"></p>
+              </form>
+            </div>
           </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s"
+              style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Download</h3>
+              <ul class="list-unstyled f_list">
+                <li><a href="#">Company</a></li>
+                <li><a href="#">Android App</a></li>
+                <li><a href="#">ios App</a></li>
+                <li><a href="#">Desktop</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">My tasks</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
+              style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Help</h3>
+              <ul class="list-unstyled f_list">
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Term &amp; conditions</a></li>
+                <li><a href="#">Reporting</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Support Policy</a></li>
+                <li><a href="#">Privacy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
+              style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+              <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+              <div class="f_social_icon">
+                <a href="#" class="fab fa-facebook"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-pinterest"></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="footer_bg">
-          <div class="footer_bg_one"></div>
-          <div class="footer_bg_two"></div>
+        <div class="footer_bg_one"></div>
+        <div class="footer_bg_two"></div>
       </div>
-  </div>
-  <div class="footer_bottom">
+    </div>
+    <div class="footer_bottom">
       <div class="container">
-          <div class="row align-items-center">
-              <div class="col-lg-6 col-sm-7">
-                  <p class="mb-0 f_400">© cakecounter Inc.. 2019 All rights reserved.</p>
-              </div>
-              <div class="col-lg-6 col-sm-5 text-right">
-                  <p>Made with <i class="icon_heart"></i> in <a href="http://cakecounter.com" target="_blank">CakeCounter</a></p>
-              </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-sm-7">
+            <p class="mb-0 f_400">© cakecounter Inc.. 2019 All rights reserved.</p>
           </div>
+          <div class="col-lg-6 col-sm-5 text-right">
+            <p>Made with <i class="icon_heart"></i> in <a href="http://cakecounter.com" target="_blank">CakeCounter</a>
+            </p>
+          </div>
+        </div>
       </div>
-  </div>
-</footer>
+    </div>
+  </footer>
 </body>
+
 </html>
