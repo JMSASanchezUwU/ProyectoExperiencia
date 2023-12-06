@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Añade la funcionalidad de tu opcion de accesibilidad a este archivo -->
+    <script src="accesibilidad.js"></script>
+    <script src="chat.js"></script>
+
+    <style>
+        .footer {
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    color: #333;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #2980f2;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    color: #333;
+    text-align: center;
+}
+
+
+    </style>
+    
+    <style>
+        .navbar-custom {
+            background-color: #2980f2;
+        }
+        .aside {
+            background-color: #6ea9f7;
+            color: #000000;  
+        }
+        .navbar .nav-link {
+            color: #000000;        
+        }
+
+        .custom-input {
+            width: 50px;          
+            height: 40px;           
+        }
+
+        .ayuda {
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px !important;
+            z-index: 9999;
+            transition: transform 0.2s;
+        }
+
+        .opciones-accesibilidad {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 9999;         
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);         
+        }
+
+        .accesibilidad {
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            left: 10px !important;
+            z-index: 9998;
+            transition: transform 0.2s;
+        }
+        .formato {
+      padding: 20px;
+      margin-top: -50px;
+    }
+
+    .t {
+      float: right;
+      width: 200px;
+      height: 200px;
+    }
+
+    .dropdown {
+      margin-left: 1080px;
+    }
+
+    .p {
+      width: 1000px;
+      height: 600px;
+      margin-left: -25px;
+    }
+
+    .col {
+      width: 300px;
+      height: 100px;
+    }
+
+    .migass {
+      text-align: center;
+      margin-left: 350px;
+      margin-top: -90px;
+    }
+
+    .dropdown {
+      margin-bottom: 20px;
+      width: 205px;
+      margin-left: 740px;
+      margin-top: -90px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #3498db;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #3498db;
+      background-color: #ecf0f1;
+    }
+
+    option {
+      font-size: 16px;
+    }
+
+    option:checked {
+      background-color: #2980b9;
+      color: #fff;
+    }
+
+    .high-contrast {
+      background-color: #000;
+      color: #fff;
+    }
+    .footer{
+        margin-top: 150px;
+    }
+    .card-body{
+        color: #000;
+    }
+    
+    </style>
+</head>
+
+<body class="todo">
+    <div id="contenido">
+        <nav class="navbar navbar-expand-lg navbar-custom nav">
+            <a class="navbar-brand" href="Index.html">
+                <img src="./Imagenes/logo.webp" width="150px" height="50px" class="d-inline-block align-top" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="academia.html">Academia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Cuerpo Académico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Investigaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursosdocentes.html">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil Académico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="PerfilDocente.html">Perfil Docente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Calendario.html">Caledario Academico</a></li>
+                </ul>
+            </div>
+        </nav>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container-fluid">
+                    <aside class="col-lg-3">
+                        <ul class="list-group">
+                            <li class="list-group-item  aside"><a href="#" style="color: black">SIGA</a></li>
+                            <li class="list-group-item aside"><a href="#" style="color: black">Redes Sociales</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary ayuda" data-toggle="modal" data-target="#chatModal"
+                        style="width: min-content;">
+                        <i class="fas fa-question-circle"></i> Ayuda
+                    </button>
+                </div>
+                <div>
+                    <button id="mostrarOpciones" type="button" class="btn btn-primary accesibilidad"
+                        style="width: min-content;">
+                        <i class="fas fa-wheelchair icon-white"></i> Accesibilidad
+                    </button>
+                </div>
+                <div>
+                </div>
+                
+
+                                <!-- Opciones de accesibilidad -->
+                <div id="opcionesAccesibilidad" class="opciones-accesibilidad d-none">
+
+                    <div>
+                        <i id="cerrarOpciones" class="fas fa-times"></i>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="aumentarFuente" class="btn btn-primary mb-2">
+                            <i class="fas fa-font fa-lg"></i><i class="fas fa-plus fa-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="disminuirFuente" class="btn btn-primary mb-2">
+                            <i class="fas fa-font fa-lg"></i><i class="fas fa-minus fa-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="leerPagina" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-volume-up"></i> 
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="aumentarTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-search-plus"></i> 
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="disminuirTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button onclick="toggleReadingMode()" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-volume-up"></i>
+                            <i class="fas fa-hand-pointer"></i> 
+                        </button>
+                    </div>
+                    <div class="d-flex flex-column align-items-center">
+                    <button onclick="toggleContrast()" class="btn btn-primary mb-2" style="width: min-content;">Cambiar Contraste</button>
+                    </div>
+                </div>
+
+                  <script>
+                    document.getElementById('mostrarOpciones').addEventListener('click', function () {
+                        document.getElementById('opcionesAccesibilidad').classList.toggle('d-none');
+                    });
+
+                    document.getElementById('cerrarOpciones').addEventListener('click', function () {
+                        document.getElementById('opcionesAccesibilidad').classList.add('d-none');
+                    });
+                </script>
+
+                
+
+                <main class="col-lg-9" style="margin-left: 25%; margin-right: 10%;">
+                    <nav class="migass" aria-label="breadcrumb" style="width:max-content;">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="./Index.html">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Academia</li>
+                        </ol>
+                    </nav>
+                    <div>
+                          
+                            <div class="formate">
+                              <div class="formato">
+                                <h1>Academias</h1>
+                                <div class="contenedor">
+                                  <img class="t" src="https://www.utng.edu.mx/assets/principal/docentes/netacad.jpg" alt="Imagen">
+                                  <div>La UTNG inició su participación en el programa académico de Cisco en el año 2000 como academia regional y actualmente somos Centro de Entrenamiento de Instructores. Es una iniciativa global sin fines de lucro de la empresa Cisco Systems que promueve el estudio de las Tecnologías de la Información específicamente en el área de las redes y las telecomunicaciones, ofrece materiales didácticos de calidad con un enfoque e-learning que facilita el autoaprendizaje por parte de los estudiantes. Los conocimientos que se imparten, están alineados con las certificaciones de reconocimiento mundial: Cisco Certified Network Associate (CCNA), Cisco Certified Network Profesional (CCNP), A+, entre otras. Este programa actualmente está implementado en más de 10,000 academias pertenecientes a diferentes instituciones educativas de 165 países.</div>
+                                </div>
+                                <br>
+                                <br>
+                                <br>
+                                <div class="dropdown">
+                                  <label for="opciones">Profesores que imparten cursos:</label>
+                                  <select id="opciones" onchange="redirigir(event)">
+                                    <option value="null" disabled selected>Selecciona un profesor</option>
+                                    <option value="opcion1">MTIE.Gerardo Parra Rodríguez</option>
+                                    <option value="opcion2">MTIE.Jose Refugio</option>
+                                  </select>
+                                </div>
+                          
+                                <img class="p" src="https://i.postimg.cc/26KmT4Xw/Calendario.jpg" alt="Descripción de la imagen">
+                          
+                                <br>
+                          
+                                <div class="row row-cols-1 row-cols-md-3 g-4">
+                                  <div class="col">
+                                    <div class="card">
+                                      <img src="https://www.utng.edu.mx/assets/principal/logo.png" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 id="opcion1" class="card-title">Encargado cursos Packet tracer</h5>
+                                        <p class="card-text"> MTIE.Gerardo Parra Rodríguez</p>
+                                        <p class="card-text"> gparra@utng.edu.mx</p>
+                                        <p class="card-text"> Tel:18 2 55 00 ext. 1387</p>
+                                        <p class="card-text"> Atención de lunes a viernes de 8:00 a 16:00 hrs.</p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col">
+                                    <div class="card">
+                                      <img src="https://www.utng.edu.mx/assets/principal/logo.png" class="card-img-top" alt="...">
+                                      <div class="contenedor card-body">
+                                        <h5 id="opcion2" class="card-title">Encargado cursos Redes</h5>
+                                        <p class="card-text"> MTIE.Jose Refugio</p>
+                                        <p class="card-text"> Jrubio@utng.edu.mx</p>
+                                        <p class="card-text"> Tel:18 2 55 00 ext. 1387</p>
+                                        <p class="card-text"> Atención de lunes a viernes de 8:00 a 16:00 hrs.</p>
+                                          </div>
+                                          </div>
+                                          </div>
+                                          </div>
+                                          </div>
+                                          
+                                            </div>
+                    </div>
+                                            <script>
+                                              function redirigir(event) {
+                                                const seleccion = event.target.value;
+                                                if (seleccion !== undefined && seleccion !== null) {
+                                                  if (seleccion === 'opcion1') {
+                                                    window.location.href = '#opcion1';
+                                                  } else if (seleccion === 'opcion2') {
+                                                    window.location.href = '#opcion2';
+                                                  }
+                                                }
+                                              }
+                                          
+                                              function toggleContrast() {
+                                                const formato = document.querySelector('.todo');
+                                                formato.classList.toggle('high-contrast');
+                                              }
+                                            </script>
+                        <!------------------------------------ Aqui pega tu parte ---------------------------------------------->
+
+                    </div>
+                    
+                </main>
+
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div class="modal" id="chatModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chat de Ayuda</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>  </p>
+                    
+                    <!-- Formulario para enviar mensajes -->
+                    <form>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje:</label>
+                            <input type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje aquí...">
+                        </div>
+                        <button class="btn btn-primary">Enviar</button>
+                    </form>
+                    <!-- Preguntas frecuentes -->
+                    <div class="preguntas-frecuentes mt-3">
+                        <h6>Preguntas Frecuentes:</h6>
+                        <ul>
+                            <li>¿Dónde puedo encontrar el horario de clases?</li>
+                            <li>¿Cómo puedo contactar a los profesores?</li>
+                            <li>¿Que información específica se mostrará para cada evento en el calendario?</li>
+                            <li>¿Cómo puedo acceder a información detallada sobre cada uno de los cursos impartidos por los docentes?</li>
+                            <li>¿Cómo puedo contactar a los profesores para obtener más información sobre sus áreas de especialización?</li>
+                            <li>¿Qué ofrece la página de academias de la UTNG?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <br>
+    <br><br><br><br><br><br><br><br><br>
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <h4>Información de Contacto</h4>
+                    <p>Dirección: Dolores Hidalgo</p>
+                    <p>Email: info@xd.com</p>
+                    <p>Teléfono: +123456789</p>
+                </div>
+                <div class="col-lg-6 mx-auto">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#">Acerca de nosotros</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

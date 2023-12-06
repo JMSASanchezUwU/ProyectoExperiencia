@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="accesibilidad.js"></script>
+    <script src="chat.js"></script>
+
+    <!-- Bootstrap JS CDN (Requiere jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .footer {
+    background-color: #f8f9fa;
+    padding: 30px 0;
+    color: #333;
+}
+
+.footer h4 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.footer p {
+    margin-bottom: 10px;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer ul li {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #2980f2;
+}
+
+    </style>
+
+    <style>
+        /* You can add global styles to this file, and also import other style files */
+        .navbar-custom {
+            background-color: #2980f2;
+            /* Otros estilos que desees */
+        }
+
+        .aside {
+            background-color: #6ea9f7;
+            color: #000000;
+            /* Color negro en formato hexadecimal */
+        }
+
+        .navbar .nav-link {
+            color: #000000;
+            /* Color negro en formato hexadecimal */
+        }
+
+        .custom-input {
+            width: 50px;
+            /* Tamaño horizontal */
+            height: 40px;
+            /* Tamaño vertical */
+        }
+
+        .ayuda {
+
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px !important;
+            z-index: 9999;
+            transition: transform 0.2s;
+        }
+
+        .opciones-accesibilidad {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 9999;
+            /* Un z-index menor para que esté detrás del botón de accesibilidad */
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Sombra para resaltar el contenedor */
+        }
+
+        .accesibilidad {
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            left: 10px !important;
+            z-index: 9998;
+            transition: transform 0.2s;
+        }
+    </style>
+    <style>
+        .calendarioUTNG table {
+            width: 100%;
+            height: 210px;
+        }
+
+        .calendarioUTNG center {
+            padding: 30px 0 0 0;
+        }
+
+        .calendarioUTNG h5 {
+            background-color: rgb(65, 129, 206);
+            color: #fff;
+            padding: 10px;
+        }
+
+        .calendarioUTNG tbody,
+        th,
+        tr,
+        td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .inicio {
+            background-color: #10e529;
+        }
+
+        .suspencion {
+            background-color: #4910e5;
+            ;
+        }
+
+        .reinscripcion {
+            background-color: #1ecfdc;
+        }
+
+        .vacaciones {
+            background-color: #001eff;
+        }
+
+        .dia {
+            background-color: #ffea00;
+            ;
+        }
+
+        .finn {
+            background-color: #ff0000;
+        }
+
+        .admision {
+            background-color: #1edc6a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contenido">
+        <!-- Contenido al que quieres aplicar el zoom -->
+        <nav class="navbar navbar-expand-lg navbar-custom nav">
+            <a class="navbar-brand" href="Index.html">
+                <img src="./Imagenes/logo.webp" width="150px" height="50px" class="d-inline-block align-top" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="academia.html">Academia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Cuerpo Académico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Investigaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cursosdocentes.html">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Perfil Académico</a></li>
+                    <li class="nav-item"><a class="nav-link" href="PerfilDocente.html">Perfil Docente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Calendario.html">Caledario Academico</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container-fluid">
+                    <aside class="col-lg-3">
+                        <ul class="list-group">
+                            <li class="list-group-item  aside"><a href="#" style="color: black">SIGA</a></li>
+                            <li class="list-group-item aside"><a href="#" style="color: black">Redes Sociales</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary ayuda" data-toggle="modal" data-target="#chatModal"
+                        style="width: min-content;">
+                        <i class="fas fa-question-circle"></i> Ayuda
+                    </button>
+                </div>
+                <div>
+                    <button id="mostrarOpciones" type="button" class="btn btn-primary accesibilidad"
+                        style="width: min-content;">
+                        <i class="fas fa-wheelchair icon-white"></i> Accesibilidad
+                    </button>
+                </div>
+                <div>
+                </div>
+
+
+                <div id="opcionesAccesibilidad" class="opciones-accesibilidad d-none">
+
+                    <div>
+                        <i id="cerrarOpciones" class="fas fa-times"></i>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="aumentarFuente" class="btn btn-primary mb-2">
+                            <i class="fas fa-font fa-lg"></i><i class="fas fa-plus fa-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="disminuirFuente" class="btn btn-primary mb-2">
+                            <i class="fas fa-font fa-lg"></i><i class="fas fa-minus fa-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="leerPagina" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="aumentarTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex flex-column align-items-center">
+                        <button id="disminuirTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="d-flex flex-column align-items-center">
+                        <button onclick="toggleReadingMode()" class="btn btn-primary mb-2" style="width: min-content;">
+                            <i class="fas fa-volume-up"></i>
+                            <i class="fas fa-hand-pointer"></i> 
+                        </button>
+                    </div>
+                </div>
+
+                 <!-- Script para mostrar u ocultar las opciones al hacer clic en el botón "Accesibilidad" -->
+                 <script>
+                    document.getElementById('mostrarOpciones').addEventListener('click', function () {
+                        document.getElementById('opcionesAccesibilidad').classList.toggle('d-none');
+                    });
+
+                    // Script para cerrar el contenedor de opciones al hacer clic en el ícono "X"
+                    document.getElementById('cerrarOpciones').addEventListener('click', function () {
+                        document.getElementById('opcionesAccesibilidad').classList.add('d-none');
+                    });
+                </script>
+
+                <main class="col-lg-9" style="margin-left: 25%; margin-right: 10%;">
+                    <div>
+                        <nav aria-label="breadcrumb" style="width:max-content;">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="./Index.html">Inicio</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Calendario Academico</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div id="wrapper">
+
+                        <div id="content-wrapper">
+
+                            <div>
+
+                                <div class="container calendarioUTNG">
+                                    <div class="form-group row ">
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Septiembre 2023</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                    </tr>
+                                                    <tr>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td class="inicio">4</td>
+                                                        <td class="reinscripcion">5</td>
+                                                        <td class="reinscripcion">6</td>
+                                                        <td class="reinscripcion">7</td>
+                                                        <td class="reinscripcion">8</td>
+                                                        <td>9</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td class="">11</td>
+                                                        <td class="">12</td>
+                                                        <td class="">13</td>
+                                                        <td class="">14</td>
+                                                        <td class="">15</td>
+                                                        <td>16</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>24</td>
+                                                        <td class="suspencion">25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Octubre 2023</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td class="">13</td>
+                                                        <td>14</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td class="">25</td>
+                                                        <td class="">26</td>
+                                                        <td class="">27</td>
+                                                        <td>28</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>31</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Noviembre 2023</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td class="suspencion">2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19</td>
+                                                        <td class="suspencion">20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <br> <br>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Diciembre 2023</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td class="finn">20</td>
+                                                        <td class="vacaciones">21</td>
+                                                        <td class="vacaciones">22</td>
+                                                        <td>23</td>
+
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>24</td>
+                                                        <td class="vacaciones">25</td>
+                                                        <td class="vacaciones">26</td>
+                                                        <td class="vacaciones">27</td>
+                                                        <td class="vacaciones">28</td>
+                                                        <td class="vacaciones">29</td>
+                                                        <td>30</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>31</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Enero 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td class="vacaciones">1</td>
+                                                        <td class="vacaciones">2</td>
+                                                        <td class="vacaciones">3</td>
+                                                        <td class="vacaciones">4</td>
+                                                        <td class="vacaciones">5</td>
+                                                        <td>6</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td class="inicio">8</td>
+                                                        <td class="reinscripcion">9</td>
+                                                        <td class="reinscripcion">10</td>
+                                                        <td class="reinscripcion">11</td>
+                                                        <td class="reinscripcion">12</td>
+                                                        <td>13</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td class="">15</td>
+                                                        <td class="">16</td>
+                                                        <td class="">17</td>
+                                                        <td class="">18</td>
+                                                        <td class="">19</td>
+                                                        <td>20</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>31</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Febrero 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td class="suspencion">5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br> <br>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Marzo 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>17</td>
+                                                        <td class="">18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>24</td>
+                                                        <td class="">25</td>
+                                                        <td class="">26</td>
+                                                        <td class="">27</td>
+                                                        <td class="">28</td>
+                                                        <td class="">29</td>
+                                                        <td>30</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>31</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Abril 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+                                                        <td class="finn">26</td>
+                                                        <td>27</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td class="vacaciones">29</td>
+                                                        <td class="vacaciones">30</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Mayo 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td class="vacaciones">1</td>
+                                                        <td class="vacaciones">2</td>
+                                                        <td class="vacaciones">3</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5</td>
+                                                        <td class="inicio">6</td>
+                                                        <td class="">7</td>
+                                                        <td class="">8</td>
+                                                        <td class="">9</td>
+                                                        <td class="">10</td>
+                                                        <td>11</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>12</td>
+                                                        <td class="">13</td>
+                                                        <td class="">14</td>
+                                                        <td class="">15</td>
+                                                        <td class="">16</td>
+                                                        <td class="">17</td>
+                                                        <td>18</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td class="dia">23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>31</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <br> <br>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Junio 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                        <td>18</td>
+                                                        <td class="">19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>23</td>
+                                                        <td>24</td>
+                                                        <td>25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>30</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Julio 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                        <td>4</td>
+                                                        <td class="">5</td>
+                                                        <td>6</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td>10</td>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>14</td>
+                                                        <td class="">15</td>
+                                                        <td class="">16</td>
+                                                        <td class="">17</td>
+                                                        <td class="">18</td>
+                                                        <td class="">19</td>
+                                                        <td>20</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td>21</td>
+                                                        <td class="">22</td>
+                                                        <td class="">23</td>
+                                                        <td class="">24</td>
+                                                        <td class="">25</td>
+                                                        <td class="">26</td>
+                                                        <td>27</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td>30</td>
+                                                        <td>31</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h5 class="centrado">Agosto 2024</h5>
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Dom</th>
+                                                        <th>Lun</th>
+                                                        <th>Mar</th>
+                                                        <th>Mie</th>
+                                                        <th>Jue</th>
+                                                        <th>Vie</th>
+                                                        <th>Sab</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td>1</td>
+                                                        <td>2</td>
+                                                        <td>3</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4</td>
+                                                        <td>5</td>
+                                                        <td>6</td>
+                                                        <td>7</td>
+                                                        <td>8</td>
+                                                        <td>9</td>
+                                                        <td class="">10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>11</td>
+                                                        <td>12</td>
+                                                        <td>13</td>
+                                                        <td>14</td>
+                                                        <td>15</td>
+                                                        <td>16</td>
+                                                        <td>17</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>18</td>
+                                                        <td>19</td>
+                                                        <td>20</td>
+                                                        <td>21</td>
+                                                        <td>22</td>
+                                                        <td class="admision">23</td>
+                                                        <td>24</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>25</td>
+                                                        <td>26</td>
+                                                        <td>27</td>
+                                                        <td>28</td>
+                                                        <td>29</td>
+                                                        <td class="finn">30</td>
+                                                        <td>31</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="indicaciones1 col s7">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td><i class="fa-solid fa-circle"
+                                                                style="color: #10e529;"></i>Inicio de cursos
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td><i class="fa-solid fa-circle"
+                                                                style="color: #4910e5;"></i>Suspensión de
+                                                            labores
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td> <i class="fa-solid fa-circle"
+                                                                style="color: #ffea00;"></i>Día del
+                                                            estudiante
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td><i class="fa-solid fa-circle"
+                                                                style="color: #ff0000;"></i>Fin de cursos</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td><i class="fa-solid fa-circle"
+                                                                style="color: #001eff;"></i>Vacaciones</td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td> <i class="fa-solid fa-circle" style="color: #1ecfdc;"></i>
+                                                            Reinscripción
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td> <i class="fa-solid fa-circle" style="color: #1edc6a;"></i>
+                                                            Examen Admisión
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+
+    <div class="modal" id="chatModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chat de Ayuda</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>  </p>
+                    
+                    <!-- Formulario para enviar mensajes -->
+                    <form>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje:</label>
+                            <input type="text" class="form-control" id="mensaje" placeholder="Escribe tu mensaje aquí...">
+                        </div>
+                        <button class="btn btn-primary">Enviar</button>
+                    </form>
+                    <!-- Preguntas frecuentes -->
+                    <div class="preguntas-frecuentes mt-3">
+                        <h6>Preguntas Frecuentes:</h6>
+                        <ul>
+                            <li>¿Dónde puedo encontrar el horario de clases?</li>
+                            <li>¿Cómo puedo contactar a los profesores?</li>
+                            <li>¿Que información específica se mostrará para cada evento en el calendario?</li>
+                            <li>¿Cómo puedo acceder a información detallada sobre cada uno de los cursos impartidos por los docentes?</li>
+                            <li>¿Cómo puedo contactar a los profesores para obtener más información sobre sus áreas de especialización?</li>
+                            <li>¿Qué ofrece la página de academias de la UTNG?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <h4>Información de Contacto</h4>
+                    <p>Dirección: Dolores Hidalgo</p>
+                    <p>Email: info@xd.com</p>
+                    <p>Teléfono: +123456789</p>
+                </div>
+                <div class="col-lg-6 mx-auto">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#">Acerca de nosotros</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <!-- Agrega más enlaces relevantes -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="accesibilidad.js"></script>
+    <title>Cursos</title>
+    <style>
+        h1 {
+            position: absolute;
+            top: 190px;
+            color: white;
+        }
+
+        .container-fluid{
+          position: absolute;
+
+        }
+
+        .list-group{
+          top: 100px;
+        }
+
+        .h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-img-top {
+            max-width: 100%;
+            height: 380px;
+        }
+
+        .navbar-custom {
+            background-color: #2980f2;
+        }
+        .aside {
+            background-color: #6ea9f7;
+            color: #000000;  
+        }
+        .navbar .nav-link {
+            color: #000000;        
+        }
+
+        .custom-input {
+            width: 50px;          
+            height: 40px;           
+        }
+
+        .ayuda {
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px !important;
+            z-index: 9999;
+            transition: transform 0.2s;
+        }
+
+        .opciones-accesibilidad {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 9999;         
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);         
+        }
+
+        .accesibilidad {
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            left: 10px !important;
+            z-index: 9998;
+            transition: transform 0.2s;
+        }
+
+        .container > div {
+        margin: 0;
+        }
+    </style>
+</head>
+<body>
+  <div id="contenido">
+    <nav class="navbar navbar-expand-lg navbar-custom nav">
+        <a class="navbar-brand" href="Index.html">
+            <img src="./Imagenes/logo.webp" width="150px" height="50px" class="d-inline-block align-top" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="Academia">Academia</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Cuerpo Académico</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Investigaciones</a></li>
+                <li class="nav-item"><a class="nav-link" href="cursosdocentes.html">Cursos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Perfil Académico</a></li>
+                <li class="nav-item"><a class="nav-link" href="PerfilDocente.html">Perfil Docente</a></li>
+                <li class="nav-item"><a class="nav-link" href="Calendario.html">Caledario Academico</a></li>
+            </ul>
+        </div>
+    </nav>
+    </nav>
+
+    
+
+    <div class="container-fluid" style="padding: 0%;">
+
+        <div class="row">
+
+          <div>
+            <img src="https://laopinion.de/wp-content/uploads/2022/05/Isaac-Enriquez-137.png" width="100%" height="400">
+        </div>
+        <div class="h1">
+            <h1>Cursos Impartidos por nuestra Docencia</h1>
+        </div>
+
+            <div class="container-fluid">
+                <aside class="col-lg-3">
+                    <ul class="list-group">
+                        <li class="list-group-item  aside"><a href="#" style="color: black">SIGA</a></li>
+                        <li class="list-group-item aside"><a href="#" style="color: black">Redes Sociales</a></li>
+                    </ul>
+                </aside>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary ayuda" data-toggle="modal" data-target="#chatModal"
+                    style="width: min-content;">
+                    <i class="fas fa-question-circle"></i> Ayuda
+                </button>
+            </div>
+            <div>
+                <button id="mostrarOpciones" type="button" class="btn btn-primary accesibilidad"
+                    style="width: min-content;">
+                    <i class="fas fa-wheelchair icon-white"></i> Accesibilidad
+                </button>
+            </div>
+            
+
+                            <!-- Opciones de accesibilidad -->
+            <div id="opcionesAccesibilidad" class="opciones-accesibilidad d-none">
+
+                <div>
+                    <i id="cerrarOpciones" class="fas fa-times"></i>
+                </div>
+
+                <div class="d-flex flex-column align-items-center">
+                    <button id="aumentarFuente" class="btn btn-primary mb-2">
+                        <i class="fas fa-font fa-lg"></i><i class="fas fa-plus fa-lg"></i>
+                    </button>
+                </div>
+
+                <div class="d-flex flex-column align-items-center">
+                    <button id="disminuirFuente" class="btn btn-primary mb-2">
+                        <i class="fas fa-font fa-lg"></i><i class="fas fa-minus fa-lg"></i>
+                    </button>
+                </div>
+
+                <div class="d-flex flex-column align-items-center">
+                    <button id="leerPagina" class="btn btn-primary mb-2" style="width: min-content;">
+                        <i class="fas fa-volume-up"></i> 
+                    </button>
+                </div>
+
+                <div class="d-flex flex-column align-items-center">
+                    <button id="aumentarTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+                        <i class="fas fa-search-plus"></i> 
+                    </button>
+                </div>
+
+                <div class="d-flex flex-column align-items-center">
+                    <button id="disminuirTamanio" class="btn btn-primary mb-2" style="width: min-content;">
+                        <i class="fas fa-search-minus"></i>
+                    </button>
+                </div>
+
+                <div class="d-flex flex-column align-items-center">
+                    <button onclick="toggleReadingMode()" class="btn btn-primary mb-2" style="width: min-content;">
+                        <i class="fas fa-volume-up"></i>
+                        <i class="fas fa-hand-pointer"></i> 
+                    </button>
+                </div>
+
+            </div>
+
+              <script>
+                document.getElementById('mostrarOpciones').addEventListener('click', function () {
+                    document.getElementById('opcionesAccesibilidad').classList.toggle('d-none');
+                });
+
+                document.getElementById('cerrarOpciones').addEventListener('click', function () {
+                    document.getElementById('opcionesAccesibilidad').classList.add('d-none');
+                });
+            </script>
+
+                    <!------------------------------------ Aqui pega tu parte ---------------------------------------------->
+              <main>
+                
+          
+              <div class="icons">
+                <button id="increaseFont" class="btn"><i class="bi bi-fonts"></i><i class="bi bi-zoom-in"></i></button>
+                <button id="decreaseFont" class="btn"><i class="bi bi-fonts"></i><i class="bi bi-zoom-out"></i></button>
+              </div>
+              
+              <div class="input-group mb-3">
+                <div class="mb-3 p-3 ms-5">
+                  <nav aria-label="breadcrumb" style="width:max-content;">
+                    <ol class="breadcrumb ms-5">
+                      <li class="breadcrumb-item"><a href="Index.html">Inicio</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Cursos impartidos</li>
+                    </ol>
+                  </nav>
+                </div>
+                  <div class="input-group-append ms-auto p-3">
+                    <form class="d-flex" role="search">
+                      <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                      <button id="searchButton" class="btn btn-outline-success" type="button">Search</button>
+                    </form>
+                  </div>
+              </div>
+          
+              <div class="container">
+                  <div class="row row-cols-3 g-5">
+                      <div id="searchResult" class="col">
+                        <div class="card" id="docente1">
+                          <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">Docente</h5>
+                            <p class="card-text">Apolinar Trejo</p>
+                            <a href="Apolinar.html" class="btn btn-primary">Ver Curso</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="searchResult" class="col">
+                        <div class="card" id="docente2">
+                          <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">Docente</h5>
+                            <p class="card-text">Ricardo Muro Gómez</p>
+                            <a href="Muro.html" class="btn btn-primary">Ver Curso</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="searchResult" class="col">
+                        <div class="card" id="docente3">
+                          <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                          <div class="card-body">
+                            <h5 class="card-title">Docente</h5>
+                            <p class="card-text">José Refugio Rubio Hernández</p>
+                            <a href="Rubio.html" class="btn btn-primary">Ver Curso</a>
+                          </div>
+                          </div>
+                      </div>
+                      <div class="col">
+                          <div class="card" id="docente4">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Docente</h5>
+                              <p class="card-text">Daniel Sustaita</p>
+                              <a href="Sustaita.html" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card" id="docente5">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Docente</h5>
+                              <p class="card-text">Saúl Benjamín Villeda Sánchez</p>
+                              <a href="Benjamin.html" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card" id="docente6">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Docente</h5>
+                              <p class="card-text">Gabriel Barron</p>
+                              <a href="Gabriel.html" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                          <div class="card" id="docente7">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Docente</h5>
+                              <p class="card-text">Anireya Saavedra Pérez</p>
+                              <a href="Anireya.html" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card" id="docente8">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Docente</h5>
+                              <p class="card-text">Martha Elena García Sandoval</p>
+                              <a href="Martha.html" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="card" id="docente9">
+                            <img src="https://static.vecteezy.com/system/resources/previews/011/356/466/non_2x/default-employee-avatar-profile-icon-worker-businessman-photo-vector.jpg" class="card-img-top">
+                            <div class="card-body">
+                              <h5 class="card-title">Docente</h5>
+                              <p class="card-text">Ana Karen Campos Márquez</p>
+                              <a href="Karen.html" class="btn btn-primary">Ver Curso</a>
+                            </div>
+                            </div>
+                        </div>
+                      </div>
+          
+          
+            <script>
+              document.getElementById('searchButton').addEventListener('click', function () {
+                      // Obtener el valor del input
+                      var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+          
+                      // Obtener todas las tarjetas de docentes
+                      var cards = document.querySelectorAll('.card');
+          
+                      var cardContent = "";
+          
+                      // Variable para rastrear si se encontró una coincidencia en las tarjetas
+                      var cardFound = false;
+          
+                      // Lista de nombres de profesores
+                      var profesores = [
+                          "Apolinar Trejo",
+                          "Ricardo Muro Gómez",
+                          "José Refugio Rubio Hernández",
+                          "Daniel Sustaita",
+                          "Saúl Benjamín Villeda Sánchez",
+                          "Gabriel Barron",
+                          "Anireya Saavedra Pérez",
+                          "Martha Elena García Sandoval",
+                          "Ana Karen Campos Márquez"
+                      ];
+          
+                      // Iterar sobre las tarjetas para verificar si el nombre coincide
+                      cards.forEach(function (card) {
+                          var cardTitle = card.querySelector('.card-title').innerText.toLowerCase();
+                          var cardText = card.querySelector('.card-text').innerText.toLowerCase();
+          
+                          if (cardTitle.includes(searchTerm) || cardText.includes(searchTerm)) {
+                              // Mostrar la tarjeta que coincide
+                              cardContent = card.outerHTML;
+                              card.style.display = 'block';
+                              cardFound = true;
+                          } else {
+                              // Ocultar las tarjetas que no coinciden
+                              card.style.display = 'none';
+                          }
+                      });
+          
+                      // Verificar si el nombre está en la lista de profesores y si no se encontró ninguna coincidencia en las tarjetas
+                      if (!cardFound && !profesores.includes(searchTerm)) {
+                          // Si el nombre no existe, redirigir a notfound.html
+                          window.location.href = "notfound.html";
+                      }
+                      
+                  });
+              
+                  document.getElementById('increaseFont').addEventListener('click', function () {
+                      cambiarTamanioFuente(2);
+                  });
+          
+                  document.getElementById('decreaseFont').addEventListener('click', function () {
+                      cambiarTamanioFuente(-2);
+                  });
+          
+                  function cambiarTamanioFuente(valor) {
+                      var body = document.body;
+                      var estiloActual = window.getComputedStyle(body, null).getPropertyValue('font-size');
+                      var tamanioActual = parseFloat(estiloActual);
+          
+                      body.style.fontSize = (tamanioActual + valor) + 'px';
+                  }
+            </script>
+              </main>      
+                
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <br>
+        <br>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<div class="modal" id="chatModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Chat de Ayuda</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¡Hola! ¿En qué puedo ayudarte?</p>
+                <form>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <input type="text" class="form-control" id="mensaje"
+                            placeholder="Escribe tu mensaje aquí...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>    
+</body>
+</html>
